@@ -1,0 +1,17 @@
+<footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between" style="align-items: center; flex-wrap: wrap; justify-content: space-evenly">
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ .Site.BaseURL }}">
+      &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+    </a>
+    {{ with .Site.Params.Source }}
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ . }}">Source</a>
+    {{ end }} {{ partial "social-follow.html" . }}
+    <div class="brave pt3 pt0-l">
+      <a target="_blank" href="https://brave.com">
+        <img src="/images/brave.gif" />
+      </a>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</footer>

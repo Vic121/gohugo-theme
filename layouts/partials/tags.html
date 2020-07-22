@@ -1,0 +1,13 @@
+  {{ $allTags := .Site.Taxonomies.tags}}
+
+<div class="flex" style="justify-content: space-evenly; flex-wrap: wrap">
+  {{ $currentPageUrl := .URL }}
+  {{ range .Params.tags }}
+    {{ $matches := index $.Site.Taxonomies.tags . }}
+    {{ if ge ($matches | len) 2 }}
+    <div class="">
+       <a class="link black ph2 pv2 hover-bg-white" href="/tags/{{ . }}">#{{ . }}</a>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>

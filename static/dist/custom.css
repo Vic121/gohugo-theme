@@ -1,0 +1,66 @@
+@media all and (max-width: 600px) {
+  .project-description {
+    display: none;
+  }
+
+  .project-box {
+     width: 100%
+  }
+}
+
+@media all and (min-width: 601px) {
+  .project-description {}
+  .project-box {
+    width: 580px;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .head-image {
+    height: 400px;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  height: min-content;
+}
+
+.blog-content {
+  max-width: 72rem;
+}
+
+.centered-img img {
+   max-width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+}
+
+.blog-font {
+  font-size: 1.1rem;
+}
+
+pre code {
+  line-height: 1.5;
+  background-color: black;
+}
+
+code {
+  background-color: #dadada;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+.brave img {
+  border-radius: 5px;
+}
+
+.footer a {
+  padding-top: 0rem;
+}
+
+hr {
+  width: 80%;
+}

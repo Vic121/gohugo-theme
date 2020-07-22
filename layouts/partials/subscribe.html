@@ -1,0 +1,12 @@
+<div class="flex" style="justify-content: space-around">
+    <div>
+    <a href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+        <img src="/images/rss.png" />
+    </a>
+</div>
+{{ with .Site.Params.subscribe_url }}
+<div>
+    <a href="{{ . }}">Get Emailed about New Posts</a>
+</div>
+{{ end }}
+</div>

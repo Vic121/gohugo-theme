@@ -1,0 +1,32 @@
+{{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
+{{ define "main" }}
+  <div class="flex-l mt2 blog-content center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <p class="f6 b helvetica tracked">
+          {{ humanize .Section | upper  }}
+        </p>
+        <time class="f6 mv4 dib tracked" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        <h1 class="f1">
+          {{ .Title }}
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy blog-font nested-links centered-img mid-gray">
+        {{ .Content }}
+        <hr />
+        {{ partial "subscribe.html" . }}
+      </div>
+    </article>
+    <aside class="ph3 mt2 mt6-ns bg-light-gray pv3 sidebar">
+      {{ partial "related-posts.html" . }}
+      {{ partial "tags.html" . }}
+      <div class="bg-light-gray pv3">
+        <hr class="mw3 bb bw1 b--black-60">
+      </div>
+      {{ partial "menu-contextual.html" . }}
+    </aside>
+  </div>
+  </div>
+{{ end }}

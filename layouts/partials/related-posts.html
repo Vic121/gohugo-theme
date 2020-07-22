@@ -1,0 +1,35 @@
+{{ $currentPageUrl := .URL }}
+{{ if .Params.tags }}
+  {{ $.Scratch.Add "related_urls" slice }}
+  {{ $allTags := .Site.Taxonomies.tags}}
+  {{ range .Params.tags }}
+    {{ $name := . | urlize }}
+    {{ $tag := index $allTags $name }}
+    {{ $pages := $tag.Pages }}
+    {{ $new_urls := union ($.Scratch.Get "related_urls") $tag }}
+    {{ $.Scratch.Set "related_urls" $new_urls }}
+  {{ end }}
+  {{ $related_urls := $.Scratch.Get "related_urls" }}
+  {{ $name := index .Params.tags 0 }}
+  {{ $name := $name | urlize }}
+  {{ $tags := index .Site.Taxonomies.tags $name }}
+  {{ $i := sub ($related_urls | len) 1 }}
+  {{ if ge $i 0 }}
+    <div>
+      <ul>
+        <li class="list b mb3">
+          {{ $i }} Related {{ if ge $i 2 }}{{ .Section | humanize | pluralize }}{{ else }}{{ .Section | humanize | singularize }}{{end}}
+        </li>
+        {{ range $related_urls }}
+          {{ if ne .URL $currentPageUrl }}
+            <li class="list f5 w-100 hover-bg-white nl1">
+              <a href="{{ .URL }}" class="link ph2 pv2 db black{{ if eq $currentPageUrl .URL }} o-50{{end}}">
+                 {{ .LinkTitle }}
+              </a>
+            </li>
+          {{ end }}
+        {{end}}
+      </ul>
+    </div>
+  {{ end }}
+{{end}}
